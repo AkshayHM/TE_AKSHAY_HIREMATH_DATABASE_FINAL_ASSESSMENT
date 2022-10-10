@@ -133,6 +133,26 @@ where Film_Type='Horror'
 Group by total_sales
 order by total_sales;
 
+-----DESTINATION TABLE FOR HOSPITAL SCD TYPE1 -------------
+create table TE_FA_Hospital_details_TGT
+(
+Hospital_Registration_No int primary key,
+Hospital_Name varchar(250) not null,
+Hospital_City varchar(250),
+Hospital_Ph_No int
+);
+---------SELECTING THE TABLE------------
+SELECT * FROM TE_FA_Hospital_details_TGT;
+----ALTERING THE COLUMN DATATYPE----------
+alter table TE_FA_Hospital_details_TGT
+alter  column Hospital_Ph_No
+bigint;
+----UPDATING THE SOURCE FOR SCD TYPE 1-----------
+insert into TE_FA_Hospital_details values (1101,'Maithri Hospital','Hospet',9458065);
+
+
+
+
 
 
 
