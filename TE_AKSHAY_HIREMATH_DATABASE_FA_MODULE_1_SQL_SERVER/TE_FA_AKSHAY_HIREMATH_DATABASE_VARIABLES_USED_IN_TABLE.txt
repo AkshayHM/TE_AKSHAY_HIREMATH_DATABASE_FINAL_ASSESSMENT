@@ -1,0 +1,181 @@
+Variable Name                  Data type                          Description of variable
+
+Table Names
+
+TE_FA_Hospital_details:
+Hospital_Registration_No       Number                            Hospital Registration Number-Primary key
+Hospital_Name                  Varchar                            Name of the Hospital
+Hospital_City                  Varchar                             Name of the Hospital city
+Hospital_Ph_No                 Number                            Phone Number of Hospital
+
+TE_FA_Doctor_details:
+KMC_Reg_No                     Number                            Karnataka Medical Registration Number-Primary key
+Doctor_Name                    Varchar                           Name of the doctor
+Doctor_Specialization          Varchar                           Specialisation of doctor
+
+TE_FA_Patient_details:
+Patient_No                     Number                            Number of the patient-Primary key
+Patient_Name                   Varchar                            Name of the Patient
+Patient_Age                    Number                            Age of the Patient
+Patient_Problem                Varchar                            Patient Problem
+Patient_Checkup_undergone      Varchar                            Patient test undergone
+Patient_disease_identified     Varchar                            Patient disease identified
+Prescribed_drug                Varchar                             Tablets
+
+TE_FA_Cinema_Ticket:
+Film_Type                      Varchar                             Type of film                         
+film_code                      Varchar                             Code of film
+cinema_code                    Varchar                             Code of cinema
+total_sales                    Number                              Total sales
+tickets_sold                   Number                              Tickets sold
+tickets_out                    Number                              Tickets out	
+show_time                      Time                                Time of the show
+occu_perc                      Varchar                             Ocuurence Percentage
+ticket_price                   Float                                Price of the ticket
+ticket_use                     Number                              Use of ticket	
+capacity                       Varchar                              Capacity of cinema hall        
+show_date                      Date                                 Date of show
+show_month                     Number                               Month of show
+show_quarter                   Number                                quarter of show
+show_day                       Varchar                               Day of show
+
+TE_FA_Covid_Healthcare_details:
+DRG_ID                         Number                                Drug Identification Number	
+DRG_Definition                 Varchar                               Drug Definition  
+Provider_Id	                   Number                                Provider ID Number
+Provider_Name                  Varchar                               Name of the Provider
+Provider_Street_Address        Varchar	                           Address of the Provider
+Provider_City                  Varchar                               City of the Provider
+Provider_State                 Varchar                               State of the Provider
+Provider_Zip_Code              Number                                Zip code of the Provider
+Hospital_Referral_Region       Varchar                               Hospital Referral Region
+Description_Total_Discharges   Varchar                               Description Total Discharges 
+Average_Covered_Charges	       Float                                 Average of covered charges of drugs
+Average_Total_Payments	       Float                                 Average Total payements of drugs
+Average_Medicare_Payments      Float                                 Average Medicare Payements of drugs
+
+TE_FA_Cinema_Ticket_Target:
+Film_Type                      Varchar                             Type of film                         
+film_code                      Varchar                             Code of film
+cinema_code                    Varchar                             Code of cinema
+total_sales                    Number                              Total sales
+tickets_sold                   Number                              Tickets sold
+tickets_out                    Number                              Tickets out	
+show_time                      Time                                Time of the show
+occu_perc                      Varchar                             Ocuurence Percentage
+ticket_price                   Float                                Price of the ticket
+ticket_use                     Number                              Use of ticket	
+capacity                       Varchar                              Capacity of cinema hall        
+show_date                      Date                                 Date of show
+show_month                     Number                               Month of show
+show_quarter                   Number                                quarter of show
+show_day                       Varchar                               Day of show
+
+TE_FA_Cinema_Ticket_Target_SCD_TYPE1:
+Film_Type                      Varchar                             Type of film                         
+film_code                      Varchar                             Code of film
+cinema_code                    Varchar                             Code of cinema
+total_sales                    Number                              Total sales
+tickets_sold                   Number                              Tickets sold
+tickets_out                    Number                              Tickets out	
+show_time                      Time                                Time of the show
+occu_perc                      Varchar                             Ocuurence Percentage
+ticket_price                   Float                                Price of the ticket
+ticket_use                     Number                              Use of ticket	
+capacity                       Varchar                              Capacity of cinema hall        
+show_date                      Date                                 Date of show
+show_month                     Number                               Month of show
+show_quarter                   Number                                quarter of show
+show_day                       Varchar                               Day of show
+
+TE_FA_Covid_Healthcare_details_Target:
+DRG_ID                         Number                                Drug Identification Number	
+DRG_Definition                 Varchar                               Drug Definition  
+Provider_Id	                   Number                                Provider ID Number
+Provider_Name                  Varchar                               Name of the Provider
+Provider_Street_Address        Varchar	                           Address of the Provider
+Provider_City                  Varchar                               City of the Provider
+Provider_State                 Varchar                               State of the Provider
+Provider_Zip_Code              Number                                Zip code of the Provider
+Hospital_Referral_Region       Varchar                               Hospital Referral Region
+Description_Total_Discharges   Varchar                               Description Total Discharges 
+Average_Covered_Charges	       Float                                 Average of covered charges of drugs
+Average_Total_Payments	       Float                                 Average Total payements of drugs
+Average_Medicare_Payments      Float                                 Average Medicare Payements of drugs
+
+TE_FA_Covid_Healthcare_details_SCD_TYPE2:
+DRG_ID                         Number                                Drug Identification Number	
+DRG_Definition                 Varchar                               Drug Definition  
+Provider_Id	                   Number                                Provider ID Number
+Provider_Name                  Varchar                               Name of the Provider
+Provider_Street_Address        Varchar	                           Address of the Provider
+Provider_City                  Varchar                               City of the Provider
+Provider_State                 Varchar                               State of the Provider
+Provider_Zip_Code              Number                                Zip code of the Provider
+Hospital_Referral_Region       Varchar                               Hospital Referral Region
+Description_Total_Discharges   Varchar                               Description Total Discharges 
+Average_Covered_Charges	       Float                                 Average of covered charges of drugs
+Average_Total_Payments	       Float                                 Average Total payements of drugs
+Average_Medicare_Payments      Float                                 Average Medicare Payements of drugs
+
+TE_FA_Healthcare:
+DRG_ID                         Number                                Drug Identification Number	
+Provider_Name                  Varchar                               Name of the Provider
+
+TE_FA_Hospital_details_iics:
+Hospital_key                   Number                            Hospital key for SCD Type 
+Hospital_Registration_No       Number                            Hospital Registration Number-Primary key
+Hospital_Name                  Varchar                            Name of the Hospital
+Hospital_City                  Varchar                             Name of the Hospital city
+Hospital_Ph_No                 Number                            Phone Number of Hospital
+
+TE_FA_Covid_HealthCare_LK:
+DRG_ID                         Number                                Drug Identification Number	
+DRG_Definition                 Varchar                               Drug Definition  
+Provider_Id	                   Number                                Provider ID Number
+Provider_Name                  Varchar                               Name of the Provider
+Provider_Street_Address        Varchar	                           Address of the Provider
+Provider_City                  Varchar                               City of the Provider
+Provider_State                 Varchar                               State of the Provider
+Provider_Zip_Code              Number                                Zip code of the Provider
+Hospital_Referral_Region       Varchar                               Hospital Referral Region
+Description_Total_Discharges   Varchar                               Description Total Discharges 
+Average_Covered_Charges	       Float                                 Average of covered charges of drugs
+Average_Total_Payments	       Float                                 Average Total payements of drugs
+Average_Medicare_Payments      Float                                 Average Medicare Payements of drugs
+dimension_key                  Number                                Dimension key is for SCD
+start_date                     date                                  Starting date
+end_date                       date                                  Ending date
+check_sum                      Number                                To check .
+
+TE_FA_Cinema_Ticket_Destination:
+Film_Type                      Varchar                             Type of film                         
+film_code                      Varchar                             Code of film
+cinema_code                    Varchar                             Code of cinema
+total_sales                    Number                              Total sales
+tickets_sold                   Number                              Tickets sold
+tickets_out                    Number                              Tickets out	
+show_time                      Time                                Time of the show
+occu_perc                      Varchar                             Ocuurence Percentage
+ticket_price                   Float                                Price of the ticket
+ticket_use                     Number                              Use of ticket	
+capacity                       Varchar                              Capacity of cinema hall        
+show_date                      Date                                 Date of show
+show_month                     Number                               Month of show
+show_quarter                   Number                                quarter of show
+show_day                       Varchar                               Day of show
+dimension_key                   Number                                Dimension key is for SCD
+check_sum                      Number                                To check .
+
+
+
+
+
+
+
+
+
+
+
+
+
