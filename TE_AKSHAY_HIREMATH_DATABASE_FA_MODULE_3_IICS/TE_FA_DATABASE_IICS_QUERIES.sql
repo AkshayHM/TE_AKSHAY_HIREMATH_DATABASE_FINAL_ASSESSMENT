@@ -79,7 +79,7 @@ alter column show_time int;
 ----UPDATING THE SOURCE TABLE FOR SCD TYPE 1-----------
 update TE_FA_Cinema_Ticket
 set tickets_sold=50 where capacity=610;
-------SELECTING SOURCE TABLE----------------------------------------
+------SELECTING SOURCE_TABLE----------------------------------------
 select * from SF_TE_FA_Cinema_Ticket
 
 
