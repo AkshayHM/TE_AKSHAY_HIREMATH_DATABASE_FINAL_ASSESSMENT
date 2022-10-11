@@ -46,7 +46,7 @@ Prescribed_drug varchar(250),
 KMC_Reg_No int foreign key references TE_FA_Doctor_details(KMC_Reg_No )
 );
 -------------------       b) Insert the data ----------------------------
----  Inserting the data for Hospital details  ---------
+---  Inserting the data for City details  ---------
 select distinct Hospital_City from TE_FA_Hospital_details;
 insert into TE_FA_City values 
 (2, 'Ballari',583226),
@@ -60,6 +60,7 @@ insert into TE_FA_City values
 (8, 'Mangalore',583233),
 (9, 'Manipal',583234),
 (10, 'Mysore',583235);
+---  Inserting the data for Hospital details  ---------
 insert into TE_FA_Hospital_details values (1101,'Maithri Hospital','Hospet',08394230616),
 (1102,'Kumarswamy  Clinic','Hospet',08394224870),
 (1103,'Vastrad Hospital','Hospet',08394227666),
@@ -81,6 +82,7 @@ insert into TE_FA_Hospital_details values (1101,'Maithri Hospital','Hospet',0839
 (1119,'Neo Care Hospital','Hospet',9019936916),
 (1120,'Nara Maternity Hospital','Bagalkot',08394587101);
 
+----updating the Hospital details -------------------------------------
 update TE_FA_Hospital_details set Hospital_city_ID=1 where Hospital_Registration_No=1120;
 update TE_FA_Hospital_details set Hospital_city_ID=2 where Hospital_Registration_No in (1105,1106,1107);
 update TE_FA_Hospital_details set Hospital_city_ID=3 where Hospital_Registration_No=1108;
@@ -91,11 +93,12 @@ update TE_FA_Hospital_details set Hospital_city_ID=7 where Hospital_Registration
 update TE_FA_Hospital_details set Hospital_city_ID=8 where Hospital_Registration_No in (1116,1115);
 update TE_FA_Hospital_details set Hospital_city_ID=9 where Hospital_Registration_No=1117;
 update TE_FA_Hospital_details set Hospital_city_ID=10 where Hospital_Registration_No=1118;
-
+----altering the table --------------
 alter table TE_FA_Hospital_details
 alter  column Hospital_Ph_No
 bigint;
 
+---selecting the table------------------
 select * from TE_FA_Hospital_details;
 
 -----   Inserting the data for Doctor details   ------------
@@ -164,47 +167,54 @@ select * from TE_FA_Patient_details;
 
 ----------------    c) Join the table ---------------------------------------
 ---Inner Join -------------
-select H.Hospital_Registration_No,H.Hospital_Name,H.Hospital_City,H.Hospital_Ph_No ,D.KMC_Reg_No,D.Doctor_Name,D.Doctor_Specialization,
+select H.Hospital_Registration_No,H.Hospital_Name,H.Hospital_city_ID,H.Hospital_Ph_No ,D.KMC_Reg_No,D.Doctor_Name,D.Doctor_Specialization,
 P.Patient_No,P.Patient_Name,P.Patient_Age,P.Patient_Problem,P.Patient_Checkup_undergone,P.Patient_disease_identified,P.Prescribed_drug
 from TE_FA_Hospital_details as H, TE_FA_Doctor_details as D , TE_FA_Patient_details as P 
 where P.KMC_Reg_No=D.KMC_Reg_No and D.Hospital_Registration_No =H.Hospital_Registration_No ;
 
 ----With Inner Keyword-----------------------
-select H.Hospital_Registration_No,H.Hospital_Name,H.Hospital_City,H.Hospital_Ph_No ,D.KMC_Reg_No,D.Doctor_Name,D.Doctor_Specialization,
-P.Patient_No,P.Patient_Name,P.Patient_Age,P.Patient_Problem,P.Patient_Checkup_undergone,P.Patient_disease_identified,P.Prescribed_drug
+select H.Hospital_Registration_No,H.Hospital_Name,H.Hospital_city_ID,H.Hospital_Ph_No ,D.KMC_Reg_No,D.Doctor_Name,D.Doctor_Specialization,
+P.Patient_No,P.Patient_Name,P.Patient_Age,P.Patient_Problem,P.Patient_Checkup_undergone,P.Patient_disease_identified,P.Prescribed_drug,C.City_ID ,C.City_name ,C.City_zip_code
 from TE_FA_Patient_details as P
 inner join TE_FA_Doctor_details as D  on  P.KMC_Reg_No=D.KMC_Reg_No 
-inner join TE_FA_Hospital_details as H  on  D.Hospital_Registration_No=H.Hospital_Registration_No ; 
+inner join TE_FA_Hospital_details as H  on  D.Hospital_Registration_No=H.Hospital_Registration_No
+inner join TE_FA_City as C on H.Hospital_city_ID=C.City_ID ;
+
 
 
 ---Full Join---------------
 
-select H.Hospital_Registration_No,H.Hospital_Name,H.Hospital_City,H.Hospital_Ph_No ,D.KMC_Reg_No,D.Doctor_Name,D.Doctor_Specialization,
+select H.Hospital_Registration_No,H.Hospital_Name,H.Hospital_city_ID,H.Hospital_Ph_No ,D.KMC_Reg_No,D.Doctor_Name,D.Doctor_Specialization,
 P.Patient_No,P.Patient_Name,P.Patient_Age,P.Patient_Problem,P.Patient_Checkup_undergone,P.Patient_disease_identified,P.Prescribed_drug
 from TE_FA_Patient_details as P
 full join TE_FA_Doctor_details as D  on  P.KMC_Reg_No=D.KMC_Reg_No 
-full join TE_FA_Hospital_details as H  on  D.Hospital_Registration_No=H.Hospital_Registration_No ; 
+full join TE_FA_Hospital_details as H  on  D.Hospital_Registration_No=H.Hospital_Registration_No
+full join TE_FA_City as C on H.Hospital_city_ID=C.City_ID ;
+
+
 
 ---- Left Join-------------------
-select H.Hospital_Registration_No,H.Hospital_Name,H.Hospital_City,H.Hospital_Ph_No ,D.KMC_Reg_No,D.Doctor_Name,D.Doctor_Specialization,
+select H.Hospital_Registration_No,H.Hospital_Name,H.Hospital_city_ID,H.Hospital_Ph_No ,D.KMC_Reg_No,D.Doctor_Name,D.Doctor_Specialization,
 P.Patient_No,P.Patient_Name,P.Patient_Age,P.Patient_Problem,P.Patient_Checkup_undergone,P.Patient_disease_identified,P.Prescribed_drug
 from TE_FA_Patient_details as P
 left join TE_FA_Doctor_details as D  on  P.KMC_Reg_No=D.KMC_Reg_No 
-left join TE_FA_Hospital_details as H  on  D.Hospital_Registration_No=H.Hospital_Registration_No ; 
+left join TE_FA_Hospital_details as H  on  D.Hospital_Registration_No=H.Hospital_Registration_No
+left join TE_FA_City as C on H.Hospital_city_ID=C.City_ID ;
 
 ----Right Join------------------------------
 
-select H.Hospital_Registration_No,H.Hospital_Name,H.Hospital_City,H.Hospital_Ph_No ,D.KMC_Reg_No,D.Doctor_Name,D.Doctor_Specialization,
+select H.Hospital_Registration_No,H.Hospital_Name,H.Hospital_city_ID,H.Hospital_Ph_No ,D.KMC_Reg_No,D.Doctor_Name,D.Doctor_Specialization,
 P.Patient_No,P.Patient_Name,P.Patient_Age,P.Patient_Problem,P.Patient_Checkup_undergone,P.Patient_disease_identified,P.Prescribed_drug
 from TE_FA_Patient_details as P
 right join TE_FA_Doctor_details as D  on  P.KMC_Reg_No=D.KMC_Reg_No 
-right join TE_FA_Hospital_details as H  on  D.Hospital_Registration_No=H.Hospital_Registration_No ; 
+right join TE_FA_Hospital_details as H  on  D.Hospital_Registration_No=H.Hospital_Registration_No
+right join TE_FA_City as C on H.Hospital_city_ID=C.City_ID ;
 
 ------- Cross Join ------------------------
 
-select H.Hospital_Registration_No,H.Hospital_Name,H.Hospital_City,H.Hospital_Ph_No ,D.KMC_Reg_No,D.Doctor_Name,D.Doctor_Specialization,
+select H.Hospital_Registration_No,H.Hospital_Name,H.Hospital_city_ID,H.Hospital_Ph_No ,D.KMC_Reg_No,D.Doctor_Name,D.Doctor_Specialization,
 P.Patient_No,P.Patient_Name,P.Patient_Age,P.Patient_Problem,P.Patient_Checkup_undergone,P.Patient_disease_identified,P.Prescribed_drug
-from TE_FA_Patient_details as P, TE_FA_Doctor_details as D  , TE_FA_Hospital_details as H ;
+from TE_FA_Patient_details as P, TE_FA_Doctor_details as D  , TE_FA_Hospital_details as H , TE_FA_City as C;
 
 
 --------- d) Different Views -------------------------------
