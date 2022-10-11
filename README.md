@@ -6,9 +6,13 @@
  Final assessment consists of :
  
  MODULE 1 : SQL server 
+ 
  MODULE 2 : SQL server Integration Services
+ 
  MODULE 3 : SQL server Reporting Services
+ 
  MODULE 4 : Informatica Intelligent Cloud Services.
+ 
  MODULE 5 : Big Picture
  
  In SQL server it contains Normalisation , Joins , Views , DDL , DML and DQL.
